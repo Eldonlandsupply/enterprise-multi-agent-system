@@ -11,3 +11,15 @@ This repository includes:
 - A step-by-step **installation & configuration framework** that covers prerequisite setup, resource provisioning, identity and security configuration, agent deployment, CI/CD integration, monitoring, testing and future extension patterns.
 
 Refer to the `docs/` directory for detailed specifications and guidance.
+
+## Architecture & Extension Notes
+
+- Read `docs/architecture.md` for an end-to-end view of how the session manager, API client and agents collaborate, including example interaction flows and extension guidance.
+- Each agent has a deep dive under `docs/agents/`, and the master inventory lives in `docs/master_inventory.md`.
+
+## GitHub Integration
+
+- Use feature branches off `main` (e.g., `feature/<agent-id>`). Submit pull requests with linked issues so changes are traceable to business requirements.
+- Protect `main` with required checks: documentation linting if available, CI for agent code (Functions, ML, Logic Apps definitions) and integration smoke tests.
+- Store secrets for agent endpoints in GitHub Actions secrets (never in workflows). Grant least privilege for deployment identities and rotate credentials on a schedule.
+- Use PR templates to capture deployment notes, observability changes and rollback steps. Tag stakeholders (security, data, operations) for reviews when agent contracts change.
