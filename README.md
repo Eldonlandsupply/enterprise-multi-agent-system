@@ -9,5 +9,6 @@ This repository includes:
 - A **master inventory** of all agents required to implement the solution.  Each agent is given a unique identifier and a concise description of its type, role, triggers and dependencies.
 - **Per-agent deep dives** describing the responsibilities, tasks, integrations, triggers, error handling and security requirements for each agent.  These documents provide implementation-ready specifications for developers and power users.
 - A step-by-step **installation & configuration framework** that covers prerequisite setup, resource provisioning, identity and security configuration, agent deployment, CI/CD integration, monitoring, testing and future extension patterns.
+- **Runtime interaction flows** that illustrate webhook intake, queue/backoff handling, caching decisions and alerting signals across the agents.  See `docs/architecture.md` for the diagrams.
 
 Refer to the `docs/` directory for detailed specifications and guidance.
