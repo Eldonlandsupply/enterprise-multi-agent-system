@@ -11,3 +11,7 @@ This repository includes:
 - A step-by-step **installation & configuration framework** that covers prerequisite setup, resource provisioning, identity and security configuration, agent deployment, CI/CD integration, monitoring, testing and future extension patterns.
 
 Refer to the `docs/` directory for detailed specifications and guidance.
+
+Additional planning resources:
+
+- `docs/framework-survey.md` – survey of orchestration frameworks, their fit with provider abstraction, and queue-aligned integration options.
