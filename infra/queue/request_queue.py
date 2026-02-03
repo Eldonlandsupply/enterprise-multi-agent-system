@@ -187,8 +187,8 @@ class RateLimitedRequestQueue:
                 asyncio.create_task(self._requeue_after_delay(queued, delay))
                 continue
 
-            self._try_set_future_result(queued.future, outcome)
-            self._metrics.completed += 1
+            if self._try_set_future_result(queued.future, outcome):
+                self._metrics.completed += 1
             self._queue.task_done()
             self._metrics.queue_depth = self._queue.qsize()
 
@@ -203,10 +203,14 @@ class RateLimitedRequestQueue:
         self,
         future: asyncio.Future[RequestOutcome],
         outcome: RequestOutcome,
-    ) -> None:
+    ) -> bool:
         if future.done():
-            return
-        future.set_result(outcome)
+            return False
+        try:
+            future.set_result(outcome)
+        except asyncio.InvalidStateError:
+            return False
+        return True
 
     def _try_set_future_exception(
         self,
@@ -215,4 +219,7 @@ class RateLimitedRequestQueue:
     ) -> None:
         if future.done():
             return
-        future.set_exception(exc)
+        try:
+            future.set_exception(exc)
+        except asyncio.InvalidStateError:
+            return
