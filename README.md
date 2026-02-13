@@ -23,3 +23,9 @@ Refer to the `docs/` directory for detailed specifications and guidance.
 - Protect `main` with required checks: documentation linting if available, CI for agent code (Functions, ML, Logic Apps definitions) and integration smoke tests.
 - Store secrets for agent endpoints in GitHub Actions secrets (never in workflows). Grant least privilege for deployment identities and rotate credentials on a schedule.
 - Use PR templates to capture deployment notes, observability changes and rollback steps. Tag stakeholders (security, data, operations) for reviews when agent contracts change.
+Additional planning resources:
+
+- `docs/framework-survey.md` – survey of orchestration frameworks, their fit with provider abstraction, and queue-aligned integration options.
+## GitHub Integration
+
+See `docs/github-webhook-integration.md` for the webhook-first ingestion plan, including signature verification, event routing, retry expectations, and migration steps from polling to webhooks.
