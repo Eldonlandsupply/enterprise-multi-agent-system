@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import random
 import time
+from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any, Awaitable, Callable, Dict, Mapping, Optional
 
@@ -225,9 +226,7 @@ class RateLimitedRequestQueue:
             return
 
 
-# Additional classes for RequestQueue implementation
-from collections import defaultdict
-
+# Alternative queue implementation with different metrics
 
 @dataclass
 class FakeResponse:
